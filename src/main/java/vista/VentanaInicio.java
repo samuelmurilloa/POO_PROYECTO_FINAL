@@ -3,8 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package vista;
-import javax.swing.ImageIcon;
-import java.awt.Image;
+import java.awt.Color;
 
 /**
  *
@@ -19,18 +18,38 @@ public class VentanaInicio extends javax.swing.JFrame {
      */
     public VentanaInicio() {
         initComponents();
-        
-        
-    }
-ImageIcon icono = new ImageIcon(getClass().getResource("/imagenes/fondo.png"));
 
-Image imagen = icono.getImage().getScaledInstance(
-        lblFondo.getWidth(),
-        lblFondo.getHeight(),
-        Image.SCALE_SMOOTH
+        setLocationRelativeTo(null);
+
+        btnIniciarSesion.setBackground(new Color(230,230,230));
+
+btnIniciarSesion.setBorder(
+    javax.swing.BorderFactory.createLineBorder(
+        new Color(255,140,0),
+        3
+    )
 );
 
-lblFondo.setIcon(new ImageIcon(imagen));
+btnIniciarSesion.setForeground(Color.BLACK);
+
+btnIniciarSesion.setFocusPainted(false);
+
+
+
+btnRegistrar.setBackground(new Color(230,230,230));
+
+btnRegistrar.setBorder(
+    javax.swing.BorderFactory.createLineBorder(
+        new Color(255,140,0),
+        3
+    )
+);
+
+btnRegistrar.setForeground(Color.BLACK);
+
+btnRegistrar.setFocusPainted(false);
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -41,19 +60,46 @@ lblFondo.setIcon(new ImageIcon(imagen));
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        lblFondo = new javax.swing.JLabel();
+        btnIniciarSesion = new javax.swing.JButton();
+        btnRegistrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        btnIniciarSesion.setText("Iniciar sesion");
+        btnIniciarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIniciarSesionActionPerformed(evt);
+            }
+        });
+
+        btnRegistrar.setText("Registrarse");
+        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblFondo, javax.swing.GroupLayout.DEFAULT_SIZE, 703, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(223, Short.MAX_VALUE)
+                .addComponent(btnRegistrar)
+                .addGap(81, 81, 81)
+                .addComponent(btnIniciarSesion)
+                .addGap(222, 222, 222))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblFondo, javax.swing.GroupLayout.DEFAULT_SIZE, 469, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(284, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnIniciarSesion)
+                    .addComponent(btnRegistrar))
+                .addGap(111, 111, 111))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -69,6 +115,14 @@ lblFondo.setIcon(new ImageIcon(imagen));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnIniciarSesionActionPerformed
+
+    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRegistrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -96,7 +150,8 @@ lblFondo.setIcon(new ImageIcon(imagen));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnIniciarSesion;
+    private javax.swing.JButton btnRegistrar;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel lblFondo;
     // End of variables declaration//GEN-END:variables
 }
