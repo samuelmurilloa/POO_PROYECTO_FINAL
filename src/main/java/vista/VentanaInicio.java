@@ -4,6 +4,8 @@
  */
 package vista;
 import java.awt.Color;
+import javax.swing.ImageIcon;
+import java.awt.Image;
 
 /**
  *
@@ -20,34 +22,17 @@ public class VentanaInicio extends javax.swing.JFrame {
         initComponents();
 
         setLocationRelativeTo(null);
+        
+       java.net.URL ruta = getClass().getResource("/imagenes/logounicardblanco.png");
 
-        btnIniciarSesion.setBackground(new Color(230,230,230));
+if (ruta != null) {
+    ImageIcon icono = new ImageIcon(ruta);
+    Image imagen = icono.getImage().getScaledInstance(300, 180, Image.SCALE_SMOOTH);
+    lblLogo.setIcon(new ImageIcon(imagen));
+} else {
+    System.out.println("No se encontró la imagen");
+}
 
-btnIniciarSesion.setBorder(
-    javax.swing.BorderFactory.createLineBorder(
-        new Color(255,140,0),
-        3
-    )
-);
-
-btnIniciarSesion.setForeground(Color.BLACK);
-
-btnIniciarSesion.setFocusPainted(false);
-
-
-
-btnRegistrar.setBackground(new Color(230,230,230));
-
-btnRegistrar.setBorder(
-    javax.swing.BorderFactory.createLineBorder(
-        new Color(255,140,0),
-        3
-    )
-);
-
-btnRegistrar.setForeground(Color.BLACK);
-
-btnRegistrar.setFocusPainted(false);
     }
 
     /**
@@ -60,19 +45,13 @@ btnRegistrar.setFocusPainted(false);
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        btnIniciarSesion = new javax.swing.JButton();
+        lblLogo = new javax.swing.JLabel();
         btnRegistrar = new javax.swing.JButton();
+        btnIniciarSesion = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-
-        btnIniciarSesion.setText("Iniciar sesion");
-        btnIniciarSesion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnIniciarSesionActionPerformed(evt);
-            }
-        });
 
         btnRegistrar.setText("Registrarse");
         btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
@@ -81,36 +60,53 @@ btnRegistrar.setFocusPainted(false);
             }
         });
 
+        btnIniciarSesion.setText("Iniciar sesion");
+        btnIniciarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIniciarSesionActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(223, Short.MAX_VALUE)
-                .addComponent(btnRegistrar)
-                .addGap(81, 81, 81)
-                .addComponent(btnIniciarSesion)
-                .addGap(222, 222, 222))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(319, 319, 319)
+                .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(154, 154, 154)
+                .addComponent(btnIniciarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(lblLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 1014, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(284, Short.MAX_VALUE)
+                .addGap(25, 25, 25)
+                .addComponent(lblLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 526, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnIniciarSesion)
-                    .addComponent(btnRegistrar))
-                .addGap(111, 111, 111))
+                    .addComponent(btnRegistrar)
+                    .addComponent(btnIniciarSesion))
+                .addGap(43, 43, 43))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -121,7 +117,9 @@ btnRegistrar.setFocusPainted(false);
     }//GEN-LAST:event_btnIniciarSesionActionPerformed
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-        // TODO add your handling code here:
+      VentanaRegistro registro = new VentanaRegistro();
+    registro.setVisible(true);
+    this.dispose();        
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     /**
@@ -153,5 +151,6 @@ btnRegistrar.setFocusPainted(false);
     private javax.swing.JButton btnIniciarSesion;
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblLogo;
     // End of variables declaration//GEN-END:variables
 }
