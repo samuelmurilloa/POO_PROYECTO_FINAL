@@ -16,17 +16,23 @@ public class Paciente extends Persona
 
     private String enfermedad;
     private String tipoSangre;
+    private String enfermedad1;
+    private String proximaCita;
+   
 
     public Paciente(String nombre,
                      int edad,
                      String identificacion,
                      String enfermedad,
+                     String enfermedad1,
                      String tipoSangre) {
 
         super(nombre, edad, identificacion);
 
         this.enfermedad = enfermedad;
         this.tipoSangre = tipoSangre;
+        this.proximaCita = "";
+        this.enfermedad1 = enfermedad1;
     }
 
     public String getEnfermedad() {
@@ -36,16 +42,27 @@ public class Paciente extends Persona
     public String getTipoSangre() {
         return tipoSangre;
     }
+    public String getEnfermedad1(){
+        return enfermedad1;
+    }
+
+    public String getProximaCita() {
+    return proximaCita;
+}
+
+public void setProximaCita(String proximaCita) {
+    this.proximaCita = proximaCita;
+}
 
     @Override
     public String obtenerRecomendacion() {
 
-        if(enfermedad.equalsIgnoreCase("Hipertension")) {
+        if(enfermedad1.equalsIgnoreCase("Hipertension")) {
 
             return "Reducir el consumo de sal.";
         }
 
-        if(enfermedad.equalsIgnoreCase("Arritmia")) {
+        if(enfermedad1.equalsIgnoreCase("Arritmia")) {
 
             return "Evitar el estres.";
         }

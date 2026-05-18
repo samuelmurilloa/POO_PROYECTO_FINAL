@@ -29,18 +29,32 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void mostrarInformacionPaciente() {
 
-        String resumen = "Nombre: " + paciente.getNombre() + "\n"
-                + "Edad: " + paciente.getEdad() + "\n"
-                + "Identificación: " + paciente.getIdentificacion() + "\n"
-                + "Tipo de sangre: " + paciente.getTipoSangre() + "\n"
-                + "Enfermedad: " + paciente.getEnfermedad();
+        
+        
+         String resumen = "Nombre: " + paciente.getNombre() + "\n"
+            + "Edad: " + paciente.getEdad() + "\n"
+            + "Identificación: " + paciente.getIdentificacion() + "\n"
+            + "Tipo de sangre: " + paciente.getTipoSangre() + "\n"
+            + "Enfermedad cardiaca: " + paciente.getEnfermedad1() + "\n"
+            + "Otra enfermedad: " + paciente.getEnfermedad();
 
-        txtResumenPaciente.setText(resumen);
-        txtResumenPaciente.setEditable(false);
+    txtResumenPaciente.setText(resumen);
+    txtResumenPaciente.setEditable(false);
 
-        txtNotasMedico.setText(paciente.obtenerRecomendacion());
-        txtNotasMedico.setEditable(false);
+    txtNotasMedico.setText(paciente.obtenerRecomendacion());
+    txtNotasMedico.setEditable(false);
+
+    actualizarProximaCita();
     }
+    
+    public void actualizarProximaCita() {
+
+    if (paciente.getProximaCita().isEmpty()) {
+        lblProximaCita.setText("Sin cita agendada");
+    } else {
+        lblProximaCita.setText(paciente.getProximaCita());
+    }
+}
 
 
     /**
@@ -52,8 +66,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel3 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
+        jpanel24 = new javax.swing.JPanel();
+        jPanel8 = new javax.swing.JPanel();
+        agendar = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        lblProximaCita = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
@@ -66,21 +86,74 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         txtNotasMedico = new javax.swing.JTextArea();
         jPanel5 = new javax.swing.JPanel();
 
+        jLabel3.setText("jLabel3");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel2.setBackground(new java.awt.Color(255, 153, 51));
+        jpanel24.setBackground(new java.awt.Color(255, 153, 51));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+        jPanel8.setBackground(new java.awt.Color(0, 102, 255));
+
+        agendar.setText("Agenda tu proxima cita");
+        agendar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                agendarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(agendar, javax.swing.GroupLayout.DEFAULT_SIZE, 239, Short.MAX_VALUE)
+                .addContainerGap())
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 152, Short.MAX_VALUE)
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(agendar, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jLabel4.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Proxima cita:");
+
+        lblProximaCita.setText("--------");
+
+        javax.swing.GroupLayout jpanel24Layout = new javax.swing.GroupLayout(jpanel24);
+        jpanel24.setLayout(jpanel24Layout);
+        jpanel24Layout.setHorizontalGroup(
+            jpanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpanel24Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(jpanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jpanel24Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblProximaCita, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(617, Short.MAX_VALUE))
+        );
+        jpanel24Layout.setVerticalGroup(
+            jpanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpanel24Layout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jpanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel4)
+                        .addComponent(lblProximaCita))
+                    .addComponent(jLabel5))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -198,7 +271,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -206,11 +278,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(23, Short.MAX_VALUE))
             .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jpanel24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jpanel24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -234,33 +307,59 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-     public static void main(String args[]) {
+    private void agendarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agendarActionPerformed
+    ventanaAgenda ventana =
+            new ventanaAgenda(
+                    paciente,
+                    this
+            );
+
+    ventana.setVisible(true);
+
+    this.setVisible(false);
+}
+
+    public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(() -> {
             Paciente paciente = new Paciente(
                     "Samuel",
                     18,
                     "123456",
+                    "asma",
                     "Hipertension",
                     "O+"
             );
-  new VentanaPrincipal(paciente).setVisible(true);
+
+            new VentanaPrincipal(paciente).setVisible(true);
         });
-    }
+    
+   
+        // TODO add your handling code here:
+    }//GEN-LAST:event_agendarActionPerformed
+
+    /**
+     * @param args the command line arguments
+     */
+     
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton agendar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JPanel jpanel24;
+    private javax.swing.JLabel lblProximaCita;
     private javax.swing.JTextArea txtNotasMedico;
     private javax.swing.JTextArea txtResumenPaciente;
     // End of variables declaration//GEN-END:variables

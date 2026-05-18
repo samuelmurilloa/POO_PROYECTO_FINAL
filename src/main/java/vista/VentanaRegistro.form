@@ -104,27 +104,36 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="txtEnfermedad" pref="194" max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="enfermedad" max="32767" attributes="0"/>
-                              <Component id="Nombre" min="-2" pref="106" max="-2" attributes="0"/>
-                              <Component id="txtNombre" pref="194" max="32767" attributes="0"/>
-                              <Component id="Edad" alignment="0" min="-2" pref="102" max="-2" attributes="0"/>
-                              <Component id="txtEdad" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtCedula" alignment="0" max="32767" attributes="0"/>
-                              <Component id="Cedula" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="enfermedad1" max="32767" attributes="0"/>
+                          <Component id="Nombre" min="-2" pref="106" max="-2" attributes="0"/>
+                          <Component id="txtNombre" pref="194" max="32767" attributes="0"/>
+                          <Component id="Edad" alignment="0" min="-2" pref="102" max="-2" attributes="0"/>
+                          <Component id="txtEdad" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtCedula" alignment="0" max="32767" attributes="0"/>
+                          <Component id="Cedula" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
+                          <Component id="cmbEnfermedad" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace pref="64" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="Telefono" min="-2" pref="87" max="-2" attributes="0"/>
-                          <Component id="txtTelefono" max="32767" attributes="0"/>
-                          <Component id="CorreoElectronico" alignment="0" min="-2" pref="108" max="-2" attributes="0"/>
-                          <Component id="txtCorreo" alignment="0" max="32767" attributes="0"/>
-                          <Component id="TipoDeSangre" min="-2" pref="101" max="-2" attributes="0"/>
-                          <Component id="cmbTipoDeSangre" alignment="0" pref="179" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="Telefono" min="-2" pref="87" max="-2" attributes="0"/>
+                                      <Component id="txtTelefono" max="32767" attributes="0"/>
+                                      <Component id="CorreoElectronico" alignment="0" min="-2" pref="108" max="-2" attributes="0"/>
+                                      <Component id="txtCorreo" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="TipoDeSangre" min="-2" pref="101" max="-2" attributes="0"/>
+                                      <Component id="cmbTipoDeSangre" alignment="0" pref="179" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Component id="txtEnfermedad" alignment="1" min="-2" pref="175" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="23" pref="23" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="enfermedad" min="-2" pref="194" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -163,11 +172,17 @@
                           <Component id="txtCedula" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="cmbTipoDeSangre" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="enfermedad" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="enfermedad" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="enfermedad1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="txtEnfermedad" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="57" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="txtEnfermedad" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cmbEnfermedad" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="69" max="32767" attributes="0"/>
                       <Component id="btnGuardarInfo" min="-2" pref="53" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                   </Group>
@@ -276,7 +291,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="enfermedad">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Alguna enfermedad diagnosticada?"/>
+                <Property name="text" type="java.lang.String" value="Otra enfermedad?"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtEnfermedad">
@@ -284,6 +299,28 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtEnfermedadActionPerformed"/>
                 <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtEnfermedadKeyTyped"/>
               </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="enfermedad1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Alguna enfermedad cardiaca?"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="cmbEnfermedad">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="6">
+                    <StringItem index="0" value="---------"/>
+                    <StringItem index="1" value="Hipertensi&#xf3;n arterial"/>
+                    <StringItem index="2" value="Arritmia"/>
+                    <StringItem index="3" value="Insuficiencia card&#xed;aca"/>
+                    <StringItem index="4" value="Fibrilaci&#xf3;n auricular"/>
+                    <StringItem index="5" value="Enfermedad coronaria"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>

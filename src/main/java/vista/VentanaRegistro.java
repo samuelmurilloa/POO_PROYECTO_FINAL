@@ -49,6 +49,8 @@ public class VentanaRegistro extends javax.swing.JFrame {
         btnGuardarInfo = new javax.swing.JButton();
         enfermedad = new javax.swing.JLabel();
         txtEnfermedad = new javax.swing.JTextField();
+        enfermedad1 = new javax.swing.JLabel();
+        cmbEnfermedad = new javax.swing.JComboBox<>();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -137,7 +139,7 @@ public class VentanaRegistro extends javax.swing.JFrame {
             }
         });
 
-        enfermedad.setText("Alguna enfermedad diagnosticada?");
+        enfermedad.setText("Otra enfermedad?");
 
         txtEnfermedad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -149,6 +151,10 @@ public class VentanaRegistro extends javax.swing.JFrame {
                 txtEnfermedadKeyTyped(evt);
             }
         });
+
+        enfermedad1.setText("Alguna enfermedad cardiaca?");
+
+        cmbEnfermedad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---------", "Hipertensión arterial", "Arritmia", "Insuficiencia cardíaca", "Fibrilación auricular", "Enfermedad coronaria" }));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -166,24 +172,30 @@ public class VentanaRegistro extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtEnfermedad, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(enfermedad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)
-                        .addComponent(Edad, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtEdad)
-                        .addComponent(txtCedula)
-                        .addComponent(Cedula, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(enfermedad1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)
+                    .addComponent(Edad, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtEdad)
+                    .addComponent(txtCedula)
+                    .addComponent(Cedula, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbEnfermedad, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Telefono, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtTelefono)
-                    .addComponent(CorreoElectronico, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCorreo)
-                    .addComponent(TipoDeSangre, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cmbTipoDeSangre, 0, 179, Short.MAX_VALUE))
-                .addGap(23, 23, 23))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(Telefono, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtTelefono)
+                                .addComponent(CorreoElectronico, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtCorreo)
+                                .addComponent(TipoDeSangre, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cmbTipoDeSangre, 0, 179, Short.MAX_VALUE))
+                            .addComponent(txtEnfermedad, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(23, 23, 23))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addComponent(enfermedad, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -214,11 +226,15 @@ public class VentanaRegistro extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cmbTipoDeSangre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addComponent(enfermedad)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(enfermedad)
+                    .addComponent(enfermedad1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtEnfermedad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtEnfermedad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbEnfermedad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
                 .addComponent(btnGuardarInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19))
         );
@@ -275,16 +291,34 @@ public class VentanaRegistro extends javax.swing.JFrame {
      String nombre = txtNombre.getText().trim();
     String cedula = txtCedula.getText().trim();
     String edadTexto = txtEdad.getText().trim();
-    String enfermedad = txtEnfermedad.getText().trim();
+    String otraEnfermedad = txtEnfermedad.getText().trim();
     String tipoSangre = cmbTipoDeSangre.getSelectedItem().toString();
+    String enfermedadCardiaca = cmbEnfermedad.getSelectedItem().toString();
 
     if (nombre.isEmpty() || cedula.isEmpty() || edadTexto.isEmpty()
-            || enfermedad.isEmpty() || tipoSangre.equals("-------")) {
+            || tipoSangre.equals("-------")) {
 
         javax.swing.JOptionPane.showMessageDialog(
                 this,
-                "Por favor complete todos los campos antes de continuar.",
+                "Por favor complete nombre, cédula, edad y tipo de sangre.",
                 "Campos incompletos",
+                javax.swing.JOptionPane.WARNING_MESSAGE
+        );
+
+        return;
+    }
+
+    String enfermedadFinal;
+
+    if (!enfermedadCardiaca.equals("-------")) {
+        enfermedadFinal = enfermedadCardiaca;
+    } else if (!otraEnfermedad.isEmpty()) {
+        enfermedadFinal = otraEnfermedad;
+    } else {
+        javax.swing.JOptionPane.showMessageDialog(
+                this,
+                "Debe seleccionar una enfermedad cardíaca o escribir otra enfermedad.",
+                "Enfermedad requerida",
                 javax.swing.JOptionPane.WARNING_MESSAGE
         );
 
@@ -307,11 +341,12 @@ public class VentanaRegistro extends javax.swing.JFrame {
     }
 
     Paciente pacienteNuevo = new Paciente(
-            nombre,
-            edad,
-            cedula,
-            enfermedad,
-            tipoSangre
+             nombre,
+        edad,
+        cedula,
+        otraEnfermedad,
+        enfermedadCardiaca,
+        tipoSangre
     );
 
     VentanaPrincipal principal = new VentanaPrincipal(pacienteNuevo);
@@ -321,10 +356,6 @@ public class VentanaRegistro extends javax.swing.JFrame {
  // TODO add your handling code here:
     }//GEN-LAST:event_btnGuardarInfoActionPerformed
 
-    private void txtEnfermedadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEnfermedadActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtEnfermedadActionPerformed
-
     private void txtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyTyped
        char c = evt.getKeyChar();
 
@@ -332,14 +363,6 @@ if (!Character.isLetter(c) && c != ' ') {
     evt.consume();
 }  // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreKeyTyped
-
-    private void txtEnfermedadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEnfermedadKeyTyped
- char c = evt.getKeyChar();
-
-if (!Character.isLetter(c) && c != ' ') {
-    evt.consume();
-}        // TODO add your handling code here:
-    }//GEN-LAST:event_txtEnfermedadKeyTyped
 
     private void txtCedulaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCedulaKeyTyped
 char c = evt.getKeyChar();
@@ -364,6 +387,18 @@ if (!Character.isDigit(c)) {
     evt.consume();
 }        // TODO add your handling code here:
     }//GEN-LAST:event_txtTelefonoKeyTyped
+
+    private void txtEnfermedadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEnfermedadKeyTyped
+        char c = evt.getKeyChar();
+
+        if (!Character.isLetter(c) && c != ' ') {
+            evt.consume();
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEnfermedadKeyTyped
+
+    private void txtEnfermedadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEnfermedadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEnfermedadActionPerformed
 
     /**
      * @param args the command line arguments
@@ -398,8 +433,10 @@ if (!Character.isDigit(c)) {
     private javax.swing.JLabel Telefono;
     private javax.swing.JLabel TipoDeSangre;
     private javax.swing.JButton btnGuardarInfo;
+    private javax.swing.JComboBox<String> cmbEnfermedad;
     private javax.swing.JComboBox<String> cmbTipoDeSangre;
     private javax.swing.JLabel enfermedad;
+    private javax.swing.JLabel enfermedad1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
