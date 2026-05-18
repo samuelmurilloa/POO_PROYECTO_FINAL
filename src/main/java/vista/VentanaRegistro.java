@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package vista;
 
+package vista;
+import modelo.Paciente;
 /**
  *
  * @author samue
@@ -45,6 +46,9 @@ public class VentanaRegistro extends javax.swing.JFrame {
         txtTelefono = new javax.swing.JTextField();
         CorreoElectronico = new javax.swing.JLabel();
         txtCorreo = new javax.swing.JTextField();
+        btnGuardarInfo = new javax.swing.JButton();
+        enfermedad = new javax.swing.JLabel();
+        txtEnfermedad = new javax.swing.JTextField();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -73,14 +77,30 @@ public class VentanaRegistro extends javax.swing.JFrame {
                 txtNombreActionPerformed(evt);
             }
         });
+        txtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNombreKeyTyped(evt);
+            }
+        });
 
         Edad.setText("Edad");
+
+        txtEdad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtEdadKeyTyped(evt);
+            }
+        });
 
         Cedula.setText("Cedula");
 
         txtCedula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCedulaActionPerformed(evt);
+            }
+        });
+        txtCedula.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCedulaKeyTyped(evt);
             }
         });
 
@@ -95,6 +115,12 @@ public class VentanaRegistro extends javax.swing.JFrame {
 
         Telefono.setText("Telefono");
 
+        txtTelefono.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtTelefonoKeyTyped(evt);
+            }
+        });
+
         CorreoElectronico.setText("Correo electronico");
 
         txtCorreo.addActionListener(new java.awt.event.ActionListener() {
@@ -103,23 +129,52 @@ public class VentanaRegistro extends javax.swing.JFrame {
             }
         });
 
+        btnGuardarInfo.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 24)); // NOI18N
+        btnGuardarInfo.setText("Guardar");
+        btnGuardarInfo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarInfoActionPerformed(evt);
+            }
+        });
+
+        enfermedad.setText("Alguna enfermedad diagnosticada?");
+
+        txtEnfermedad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEnfermedadActionPerformed(evt);
+            }
+        });
+        txtEnfermedad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtEnfermedadKeyTyped(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(151, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(151, 151, 151))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(151, 151, 151))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addComponent(btnGuardarInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(167, 167, 167))))
+            .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)
-                    .addComponent(Edad, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtEdad)
-                    .addComponent(txtCedula)
-                    .addComponent(Cedula, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtEnfermedad, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(enfermedad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)
+                        .addComponent(Edad, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtEdad)
+                        .addComponent(txtCedula)
+                        .addComponent(Cedula, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(Telefono, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -159,7 +214,13 @@ public class VentanaRegistro extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cmbTipoDeSangre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(209, Short.MAX_VALUE))
+                .addGap(30, 30, 30)
+                .addComponent(enfermedad)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtEnfermedad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                .addComponent(btnGuardarInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -209,6 +270,101 @@ public class VentanaRegistro extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCorreoActionPerformed
 
+    private void btnGuardarInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarInfoActionPerformed
+
+     String nombre = txtNombre.getText().trim();
+    String cedula = txtCedula.getText().trim();
+    String edadTexto = txtEdad.getText().trim();
+    String enfermedad = txtEnfermedad.getText().trim();
+    String tipoSangre = cmbTipoDeSangre.getSelectedItem().toString();
+
+    if (nombre.isEmpty() || cedula.isEmpty() || edadTexto.isEmpty()
+            || enfermedad.isEmpty() || tipoSangre.equals("-------")) {
+
+        javax.swing.JOptionPane.showMessageDialog(
+                this,
+                "Por favor complete todos los campos antes de continuar.",
+                "Campos incompletos",
+                javax.swing.JOptionPane.WARNING_MESSAGE
+        );
+
+        return;
+    }
+
+    int edad;
+
+    try {
+        edad = Integer.parseInt(edadTexto);
+    } catch (NumberFormatException e) {
+        javax.swing.JOptionPane.showMessageDialog(
+                this,
+                "La edad debe ser un número válido.",
+                "Error en edad",
+                javax.swing.JOptionPane.ERROR_MESSAGE
+        );
+
+        return;
+    }
+
+    Paciente pacienteNuevo = new Paciente(
+            nombre,
+            edad,
+            cedula,
+            enfermedad,
+            tipoSangre
+    );
+
+    VentanaPrincipal principal = new VentanaPrincipal(pacienteNuevo);
+    principal.setVisible(true);
+
+    this.dispose();
+ // TODO add your handling code here:
+    }//GEN-LAST:event_btnGuardarInfoActionPerformed
+
+    private void txtEnfermedadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEnfermedadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEnfermedadActionPerformed
+
+    private void txtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyTyped
+       char c = evt.getKeyChar();
+
+if (!Character.isLetter(c) && c != ' ') {
+    evt.consume();
+}  // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreKeyTyped
+
+    private void txtEnfermedadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEnfermedadKeyTyped
+ char c = evt.getKeyChar();
+
+if (!Character.isLetter(c) && c != ' ') {
+    evt.consume();
+}        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEnfermedadKeyTyped
+
+    private void txtCedulaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCedulaKeyTyped
+char c = evt.getKeyChar();
+
+if (!Character.isDigit(c)) {
+    evt.consume();
+}        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCedulaKeyTyped
+
+    private void txtEdadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEdadKeyTyped
+char c = evt.getKeyChar();
+
+if (!Character.isDigit(c)) {
+    evt.consume();
+}        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEdadKeyTyped
+
+    private void txtTelefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelefonoKeyTyped
+char c = evt.getKeyChar();
+
+if (!Character.isDigit(c)) {
+    evt.consume();
+}        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTelefonoKeyTyped
+
     /**
      * @param args the command line arguments
      */
@@ -241,7 +397,9 @@ public class VentanaRegistro extends javax.swing.JFrame {
     private javax.swing.JLabel Nombre;
     private javax.swing.JLabel Telefono;
     private javax.swing.JLabel TipoDeSangre;
+    private javax.swing.JButton btnGuardarInfo;
     private javax.swing.JComboBox<String> cmbTipoDeSangre;
+    private javax.swing.JLabel enfermedad;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -249,7 +407,9 @@ public class VentanaRegistro extends javax.swing.JFrame {
     private javax.swing.JTextField txtCedula;
     private javax.swing.JTextField txtCorreo;
     private javax.swing.JTextField txtEdad;
+    private javax.swing.JTextField txtEnfermedad;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtTelefono;
     // End of variables declaration//GEN-END:variables
+
 }
